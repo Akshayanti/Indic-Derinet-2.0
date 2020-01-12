@@ -2,13 +2,16 @@
 
 # Set the link for UD2.x Data here
 ud_link = https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3105/ud-treebanks-v2.5.tgz
-udpipe_link = https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-2998/hindi-hdtb-ud-2.4-190531.udpipe
 ud_version = 2.5
-lang_name = Hindi
-lang_code = hi
+lang_name = Urdu
+lang_code = ur
 lang_name_lower = echo "$(lang_name)" | tr '[:upper:]' '[:lower:]'
+udpipe_link = https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-2998/urdu-udtb-ud-2.4-190531.udpipe
 
 get_data:
+	if ! [ -d dataset ]; then \
+		mkdir dataset; \
+	fi;
 	if ! [ -f dataset/ud_`echo lang_code`.conllu ]; then \
 		if ! [ -d $(HOME)/ud-treebanks-v`echo $(ud_version)` ]; then \
 			cd $(HOME); \
@@ -20,9 +23,12 @@ get_data:
 		done; \
 	fi;
 	cd dataset; \
-		if ! [ -f hi.udpipe ]; then \
-			wget -O hi.udpipe `echo $(udpipe_link)`; \
+		if ! [ -f ur.udpipe ]; then \
+			wget -O ur.udpipe `echo $(udpipe_link)`; \
 		fi; \
-		if ! [ -f hi.conllu ]; then \
-			udpipe --tag --input=horizontal hi.udpipe < hi.corpus > hi.conllu; \
+		if ! [ -f ur.conllu ]; then \
+			udpipe --tag --input=horizontal ur.udpipe < ur.corpus > ur.conllu; \
 		fi;
+
+#process_data:
+#	python3 scripts/get_lexemes.py --lang_code `echo $(lang_code)` -id dataset;
