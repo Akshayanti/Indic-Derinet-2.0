@@ -1,0 +1,47 @@
+Hi!
+
+The attached document contains 100 words in 2 columns, in the language you are comfortable with.
+The first column contains the word, and the second column contains the associated part-of-speech
+(NOUN or VERB).
+
+As an annotator, please mark the entries in the third column of the excel file according to the
+following guidelines. Please note the the answers would be processed automatically, and are therefore
+case-sensitive.
+
+1. If the word is wrong (due to extra space, an extra/deleted character etc.), or in case the word makes
+no sense whatsoever, mark the value as "TE".
+
+2. If the word is NOT wrong, but it is a combination of two independent meaningful words and is almost never
+used as a single word on its own, mark the value as "COMPOUND".
+Example:
+	In English, if the word is 'truckdriver', it is made up of two independent meaningful words, viz.
+	'truck' and 'driver', and is often written as 'truck-driver'. This example should therefore
+	be marked as "COMPOUND". On contrary, 'firetruck' would not be marked as "COMPOUND".
+
+3. If the word is NOT wrong, but the part-of-speech is wrong, mark the value as "POS".
+
+4. If the word is NOT wrong, and the part-of-speech is also NOT wrong, BUT the word is from a foreign
+language, mark the value as "FOREIGN".
+Example:
+	"Namaste" is a Hindi/Sanskit word. If the word appears in the list for English language, since it is
+	of foreign origin, it will be marked as "FOREIGN".
+
+5. If the word is NOT wrong, and the part-of-speech is also NOT wrong, BUT the word is not in
+dictionary form, mark the value as "Inflection".
+Example:
+	"runs" with part-of-speech as "VERB" is a correct entry. However, upon looking up in dictionary,
+	we would find the entry for "run", and "runs" is a different form of "run".
+	Thus, this entry would be marked as "Inflection".
+
+5. If everything is alright, mark the value as "-".
+
+6. If there is a case different from those mentioned above, mark the value as "?". This can also be used
+when you are not sure about what value to mark the given word with.
+
+Please DO NOT change the values in the first two columns. Please mention your answer in the third column.
+In case of any doubts whatsoever, please feel free to email me at:
+akshayantimatter@gmail.com
+
+Thank you for your time, and patience.
+Best,
+Akshay
