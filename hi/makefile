@@ -9,7 +9,7 @@ lang_code = hi
 lang_name_lower = echo "$(lang_name)" | tr '[:upper:]' '[:lower:]'
 
 get_data:
-	if ! [ -f dataset/ud_`echo lang_code`.conllu ]; then \
+	@if ! [ -f dataset/ud_`echo lang_code`.conllu ]; then \
 		if ! [ -d $(HOME)/ud-treebanks-v`echo $(ud_version)` ]; then \
 			cd $(HOME); \
 				wget -c `echo $(ud_link)`; \
@@ -19,7 +19,7 @@ get_data:
 			cat $$conllufile >> dataset/ud_`echo $(lang_code)`.conllu; \
 		done; \
 	fi;
-	cd dataset; \
+	@cd dataset; \
 		if ! [ -f hi.udpipe ]; then \
 			wget -O hi.udpipe `echo $(udpipe_link)`; \
 		fi; \

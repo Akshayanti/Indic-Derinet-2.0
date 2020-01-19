@@ -9,7 +9,7 @@ lang_name_lower = echo "$(lang_name)" | tr '[:upper:]' '[:lower:]'
 udpipe_link = https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-2998/marathi-ufal-ud-2.4-190531.udpipe
 
 get_data:
-	if ! [ -f dataset/ud_`echo lang_code`.conllu ]; then \
+	@if ! [ -f dataset/ud_`echo lang_code`.conllu ]; then \
 		if ! [ -d $(HOME)/ud-treebanks-v`echo $(ud_version)` ]; then \
 			cd $(HOME); \
 				wget -c `echo $(ud_link)`; \
@@ -19,7 +19,7 @@ get_data:
 			cat $$conllufile >> dataset/ud_`echo $(lang_code)`.conllu; \
 		done; \
 	fi;
-	cd dataset; \
+	@cd dataset; \
 		if ! [ -f mr.udpipe ]; then \
 			wget -O mr.udpipe `echo $(udpipe_link)`; \
 		fi; \
